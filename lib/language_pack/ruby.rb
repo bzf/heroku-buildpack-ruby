@@ -91,23 +91,39 @@ WARNING
       # check for new app at the beginning of the compile
       new_app?
       Dir.chdir(build_path)
+      puts Time.current
       remove_vendor_bundle
+      puts Time.current
       warn_bundler_upgrade
+      puts Time.current
       install_ruby
+      puts Time.current
       install_jvm
+      puts Time.current
       setup_language_pack_environment
+      puts Time.current
       setup_export
+      puts Time.current
       setup_profiled
+      puts Time.current
       allow_git do
         install_bundler_in_app
+      puts Time.current
         build_bundler("development:test")
+      puts Time.current
         post_bundler
+      puts Time.current
         create_database_yml
+      puts Time.current
         install_binaries
+      puts Time.current
         run_assets_precompile_rake_task
+      puts Time.current
       end
       config_detect
+      puts Time.current
       best_practice_warnings
+      puts Time.current
       cleanup
       super
     end
