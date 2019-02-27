@@ -233,7 +233,7 @@ module LanguagePack
     # (denoted by ----->)
     # @param [String] topic message to be displayed
     def topic(message)
-      Kernel.puts "-----> #{message}"
+      Kernel.puts "[#{Time.new}]-----> #{message}"
       $stdout.flush
     end
 
@@ -241,11 +241,12 @@ module LanguagePack
     # (indented by 6 spaces)
     # @param [String] message to be displayed
     def puts(message)
+
       message.each_line do |line|
         if line.end_with?("\n".freeze)
-          print "       #{line}"
+          print "[#{Time.new}]       #{line}"
         else
-          print "       #{line}\n"
+          print "[#{Time.new}]       #{line}\n"
         end
       end
 
