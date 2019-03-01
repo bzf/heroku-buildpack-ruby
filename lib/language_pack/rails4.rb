@@ -86,8 +86,10 @@ WARNING
 
         topic("Preparing app for Rails asset pipeline")
 
+        before = Time.now
         @cache.load_without_overwrite public_assets_folder
         @cache.load default_assets_cache
+        puts "@cache.load_without_overwrite and @cache.load (took #{Time.now - before}s)"
 
         precompile.invoke(env: rake_env)
 
