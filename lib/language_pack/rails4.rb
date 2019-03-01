@@ -90,9 +90,9 @@ WARNING
         @cache.load_without_overwrite public_assets_folder
         puts "@cache.load_without_overwrite done #{public_assets_folder} (took #{Time.now - before}s)"
 
-        before = Time.now
-        @cache.load default_assets_cache
-        puts "@cache.load done #{default_assets_cache} (took #{Time.now - before}s)"
+        # before = Time.now
+        # @cache.load default_assets_cache
+        # puts "@cache.load done #{default_assets_cache} (took #{Time.now - before}s)"
 
         precompile.invoke(env: rake_env)
 
